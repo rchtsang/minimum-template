@@ -177,6 +177,22 @@ statically. Newlib and newlib-nano are not part of the platform.
 The user-mode program and SVC example are supplied for later assignments. They
 are not Assignment 1 implementation work.
 
+### User-Mode Hello Example
+
+The complete later-assignment example packages `user-hello`, loads its module
+segments into user-accessible RAM, creates a protected user stack, enters A32
+USR mode, and handles its custom one-byte UART syscall:
+
+```sh
+make user-mode-hello-image
+make -C examples/user-mode-hello test
+```
+
+All example-only source, headers, packaging, and tests are under
+`examples/user-mode-hello/`; none are part of the canonical kernel or user
+program trees. The example deliberately uses a small custom syscall. Assignment
+2 generalizes the same SVC path into its required `ioctl` interface.
+
 ## Bootloader Maintenance
 
 Normal student work uses the checked-in `bootloader/bootloader.bin`; `make`
