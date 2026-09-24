@@ -109,7 +109,8 @@ for navigation, memory inspection, searches, commands, and UART selection.
 
 ```text
 bootloader/  Supplied reset firmware and canonical 64-KiB Boot ROM
-kernel/      Starter kernel, platform headers, linker script, and examples
+examples/    Self-contained kernel and user-mode examples
+kernel/      Starter kernel, platform headers, and linker script
 user/        User support library, common build rules, and starter program
 image/       Image manifest and generated packaged image
 tests/       Public black-box manifests and optional student tests
@@ -142,7 +143,7 @@ tests/       Public black-box manifests and optional student tests
 - Add new C or assembly sources under `kernel/src/` and list their objects in
   `kernel/Makefile`; the starter intentionally does not prescribe a subsystem
   layout.
-- Add kernel examples under `kernel/examples/`.
+- Add self-contained examples under `examples/`.
 - Add independently linked user programs under `user/prog/` using the existing
   directory-local Makefile pattern.
 - Select the kernel and user modules included in the image by editing
@@ -165,9 +166,9 @@ make clean
 Individual examples and programs can also be built directly:
 
 ```sh
-make -C kernel/examples/mmio-basics
-make -C kernel/examples/svc-context-switch
-make -C kernel/examples/irq-context-switch
+make -C examples/mmio-basics
+make -C examples/svc-context-switch
+make -C examples/irq-context-switch
 make -C user/prog/minimum-user
 ```
 

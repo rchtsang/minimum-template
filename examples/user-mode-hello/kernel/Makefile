@@ -1,2 +1,2 @@
 PROGRAM := user-mode-hello
-include ../../../kernel/common.mk
+include ../../kernel.mk
