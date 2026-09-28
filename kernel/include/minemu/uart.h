@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include "minemu/platform.h"
 
+void uart_init(void);
 void uart_txwrite(char c);
 void uart_txwrite_string(const char *c);
 

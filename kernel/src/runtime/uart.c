@@ -1,6 +1,9 @@
 #include "minemu/uart.h"
 #include "minemu/platform.h"
 
+void uart_init(void) {
+    MINEMU_UART0->control = MINEMU_UART_CONTROL_RX_IRQ_ENABLE;
+}
 void uart_txwrite(char c) {
     while(!(MINEMU_UART0->status & MINEMU_UART_STATUS_TX_READY)) {}
     MINEMU_UART0->tx_data = (uint32_t)c;
