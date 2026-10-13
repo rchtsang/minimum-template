@@ -5,6 +5,7 @@
 void minemu_kernel_main(const struct minemu_boot_info *boot_info) {
     const char message[] = "minemu raw MMIO example\n";
     for (size_t index = 0; index < sizeof(message) - 1; ++index) {
+        while(!(MINEMU_UART0->status & MINEMU_UART_STATUS_TX_READY)) {}
         MINEMU_UART0->tx_data = (uint8_t)message[index];
     }
     MINEMU_RNG->seed = UINT32_C(0x12345678);
